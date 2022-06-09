@@ -61,14 +61,20 @@ namespace DisconnectedEnvironment
             this.cmdAdd = new System.Windows.Forms.Button();
             this.cmdSave = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
+            this.hRDataSet = new DisconnectedEnvironment.HRDataSet();
+            this.empdetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empdetailsTableAdapter = new DisconnectedEnvironment.HRDataSetTableAdapters.empdetailsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hRDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empdetailsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.BindingSource = this.empdetailsBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -279,6 +285,7 @@ namespace DisconnectedEnvironment
             // 
             // txtCode
             // 
+            this.txtCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.empdetailsBindingSource, "ccode", true));
             this.txtCode.Location = new System.Drawing.Point(220, 3);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(100, 22);
@@ -286,6 +293,7 @@ namespace DisconnectedEnvironment
             // 
             // txtName
             // 
+            this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.empdetailsBindingSource, "cname", true));
             this.txtName.Location = new System.Drawing.Point(220, 49);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 22);
@@ -293,6 +301,7 @@ namespace DisconnectedEnvironment
             // 
             // txtAddress
             // 
+            this.txtAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.empdetailsBindingSource, "caddress", true));
             this.txtAddress.Location = new System.Drawing.Point(220, 90);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(100, 22);
@@ -300,6 +309,7 @@ namespace DisconnectedEnvironment
             // 
             // txtState
             // 
+            this.txtState.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.empdetailsBindingSource, "cstate", true));
             this.txtState.Location = new System.Drawing.Point(220, 138);
             this.txtState.Name = "txtState";
             this.txtState.Size = new System.Drawing.Size(100, 22);
@@ -307,6 +317,7 @@ namespace DisconnectedEnvironment
             // 
             // txtCountry
             // 
+            this.txtCountry.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.empdetailsBindingSource, "ccountry", true));
             this.txtCountry.Location = new System.Drawing.Point(220, 187);
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(100, 22);
@@ -314,6 +325,7 @@ namespace DisconnectedEnvironment
             // 
             // cbDesignation
             // 
+            this.cbDesignation.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.empdetailsBindingSource, "cDesignation", true));
             this.cbDesignation.FormattingEnabled = true;
             this.cbDesignation.Location = new System.Drawing.Point(220, 242);
             this.cbDesignation.Name = "cbDesignation";
@@ -322,6 +334,7 @@ namespace DisconnectedEnvironment
             // 
             // cbDepartment
             // 
+            this.cbDepartment.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.empdetailsBindingSource, "cDepartment", true));
             this.cbDepartment.FormattingEnabled = true;
             this.cbDepartment.Location = new System.Drawing.Point(220, 296);
             this.cbDepartment.Name = "cbDepartment";
@@ -358,6 +371,20 @@ namespace DisconnectedEnvironment
             this.cmdDelete.UseVisualStyleBackColor = true;
             this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
             // 
+            // hRDataSet
+            // 
+            this.hRDataSet.DataSetName = "HRDataSet";
+            this.hRDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // empdetailsBindingSource
+            // 
+            this.empdetailsBindingSource.DataMember = "empdetails";
+            this.empdetailsBindingSource.DataSource = this.hRDataSet;
+            // 
+            // empdetailsTableAdapter
+            // 
+            this.empdetailsTableAdapter.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -376,6 +403,8 @@ namespace DisconnectedEnvironment
             this.bindingNavigator1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hRDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empdetailsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,6 +442,9 @@ namespace DisconnectedEnvironment
         private System.Windows.Forms.Button cmdAdd;
         private System.Windows.Forms.Button cmdSave;
         private System.Windows.Forms.Button cmdDelete;
+        private HRDataSet hRDataSet;
+        private System.Windows.Forms.BindingSource empdetailsBindingSource;
+        private HRDataSetTableAdapters.empdetailsTableAdapter empdetailsTableAdapter;
     }
 }
 

@@ -26,6 +26,8 @@ namespace DisconnectedEnvironment
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'hRDataSet.empdetails' table. You can move, or remove it, as needed.
+            this.empdetailsTableAdapter.Fill(this.hRDataSet.empdetails);
             this.empdetailsTableAdapter.Fill(this.hRDataSet.empdetails);
             this.empdetailsTableAdapter.Fill(this.hRDataSet.empdetails);
             txtCode.Enabled = false;
@@ -111,7 +113,7 @@ namespace DisconnectedEnvironment
             txtAddress.Enabled = false;
             txtState.Enabled = false;
             txtCountry.Enabled = false;
-            cbDesignation.Enab1ed = false;
+            cbDesignation.Enabled = false;
             cbDepartment.Enabled = false;
             this.empdetailsTableAdapter.Fill(this.hRDataSet.empdetails);
             cmdAdd.Enabled = true;
